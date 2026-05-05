@@ -1,30 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopHere | Online Shopping</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">ShopHere</div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search for clothes, electronics, and more...">
-        </div>
-        <div class="menu">
-            <span>User</span>
-            <span>Cart</span>
-        </div>
-    </nav>
+const products = [
+    { name: "Traditional Saree", price: "₹349", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500" },
+    { name: "Cotton Kurti", price: "₹299", img: "https://images.unsplash.com/photo-1588510170433-f9214197d190?w=500" },
+    { name: "Mens T-Shirt", price: "₹199", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" },
+    { name: "Bluetooth Buds", price: "₹799", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500" }
+];
 
-    <header class="banner">
-        <h2>Lowest Prices, Best Quality</h2>
-    </header>
+const container = document.getElementById('product-list');
 
-    <div id="product-list" class="container">
+// Function to render products
+function renderProducts() {
+    container.innerHTML = products.map(item => `
+        <div class="card">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="card-info">
+                <h4>${item.name}</h4>
+                <p class="price">${item.price}</p>
+                <span class="tag">Free Delivery</span>
+            </div>
         </div>
+    `).join('');
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+renderProducts();
